@@ -56,6 +56,12 @@ A:The initial buffer size must balance between having enough space to avoid freq
 Q:What are the different types of array size specification in programming languages?
 A:Arrays can have variable sizes (determined at runtime) or compile-time fixed sizes (where the size is a constant known before program execution)
 
+- What sucks about an Array:
+
+* Deletion --> you can't really delete, can only "zero out" something
+* Insertion --> can't insert, can write
+* Ungrowable --> might overwrite other adjacent data
+
 ### Linear Search
 
 Implementation of indexOf under the hood : Linear Search
@@ -148,16 +154,10 @@ Q:How is the jump amount calculated in the crystal ball problem?
 A:The jump amount is calculated using Math.floor(Math.sqrt(breaks.length)), which ensures a whole number jump size based on the array's length
 
 Q:What are the two main steps in the crystal ball problem's jumping algorithm?
-A:jumping algorithm?
-
-Click to reveal answer
-First, jump by square root of N increments until a break is detected, then jump back one increment and linearly search forward to find the exact breaking point
+A:First, jump by square root of N increments until a break is detected, then jump back one increment and linearly search forward to find the exact breaking point
 
 Q:What happens if the jumping algorithm reaches the end of the array without finding a break?
 A:The algorithm will return -1, indicating that no breaking point was found in the array
 
 Q:Why is jumping by square root of N more efficient than binary search in the crystal ball problem?
-A:search in the crystal ball problem?
-
-Click to reveal answer
-Square root of N allows for sub-linear searching, whereas binary search still encounters a linear time complexity problem
+A:Square root of N allows for sub-linear searching, whereas binary search still encounters a linear time complexity problem

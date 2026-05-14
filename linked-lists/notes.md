@@ -1,0 +1,53 @@
+## Linked List
+
+node-based data structure
+node that contains a value + a reference to the next node
+can walk a daisy chain
+
+singly linked list : no walking backwards
+doubly linked list: another property prev
+
+- deletion and insertion can be very fast
+
+* inserting is constant time, we are just shifting things, and changing a bunch of "next" and "prev".
+* insertion: O(1), nothing based on input
+* deletion:
+  B = C.prev
+  B.next = C.next (for deletion)
+  D.prev = C.prev
+
+C.prev = C.next = null
+
+- order of operations matter
+
+* deletion: also O(1)
+
+- deletion in the middle can be costly if the traversal is costly! (getting to that point)
+- every single linked list is a graph and also technically a tree
+
+Q:What is a linked list, and how does it fundamentally differ from an array?
+A:A linked list is a node-based data structure where each node contains a value and a reference (pointer) to the next node. Unlike arrays, linked lists allow dynamic insertion and deletion with constant time complexity, and do not require shifting indices when modifying the list.
+
+Q:What are the key characteristics of a singly linked list?
+A:In a singly linked list, each node points only forward to the next node, which means you can only traverse the list in one direction. If you lose the reference to a previous node, you cannot access it again.
+
+Q:What distinguishes a doubly linked list from a singly linked list?
+A:A doubly linked list contains nodes with both a 'next' and a 'previous' pointer, allowing bidirectional traversal. This means you can move forward and backward through the list, unlike a singly linked list which only allows forward movement.
+
+Q:How does insertion work in a linked list, and what is its time complexity?
+A:Insertion in a linked list involves adjusting pointers. The pointer manipulation itself is O(1), but finding the insertion position may require O(n) traversal. Overall complexity is O(1) for insertion at the head or with a known reference, and O(n) when searching for a specific position.
+
+Q:What are the memory allocation characteristics of a linked list?
+A:Linked lists use heap-allocated objects, which means nodes are stored in memory locations that are typically more expensive than stack memory. Each node is a separate object containing a value and references to other nodes.
+
+Q:What is the time complexity of accessing the head or tail of a linked list?
+A:Accessing the head or tail of a linked list is a constant time operation (O(1)) because the linked list maintains direct references to these nodes
+
+Q:What are the time complexities of deletion in a linked list?
+A:Deletion at the head or tail is a constant time operation (O(1)), while deletion in the middle requires traversal, making it more costly with a time complexity of O(n)
+
+Q:Why can prepending and appending to a linked list be fast?
+A:Prepending and appending are constant time operations because you can simply break and rearrange links at the head or tail without traversing the entire list
+
+Q:How can a linked list be conceptually viewed in relation to other data structures?
+A:Every linked list can be considered a graph and technically a tree, making it a foundational data structure for understanding more complex data structures
