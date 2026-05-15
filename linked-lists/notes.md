@@ -75,3 +75,39 @@ A:Create the new node, 2. Set its 'next' to the current node, 3. Set its 'previo
 
 Q:What are the three main conditions to consider when removing a node from a doubly linked list?
 A:The three conditions involve handling the previous node, the next node, and potential updates to the head and tail of the list if the node being removed is at the beginning or end of the list.
+
+Q:How does breaking links work when removing a node from a doubly linked list?
+A:Breaking links involves setting the previous node's next pointer and the next node's previous pointer to skip over the current node, effectively removing it from the list. Additionally, the current node's prev and next pointers are set to undefined.
+
+Q:What is the purpose of the getAt method in a doubly linked list implementation?
+A:The getAt method allows retrieving a node at a specific index in the list, which can be used for various operations like inserting, removing, or accessing nodes by their position.
+
+Q:What steps are involved in updating the head of a linked list when removing a node?
+A:When removing the head node, update the head to point to the next node in the list. This involves setting this.head = curr.next and ensuring the new head's previous pointer is set correctly.
+
+Q:How does a doubly linked list differ from a singly linked list in terms of node removal?
+A:In a doubly linked list, node removal is more complex because each node has both a previous and next pointer. This allows for more efficient bidirectional traversal and node manipulation compared to a singly linked list.
+
+Q:What are the advantages of using JavaScript or TypeScript for demonstrating computer science concepts?
+A:JavaScript and TypeScript are accessible languages that are easier to use, safer, and less prone to pointer exceptions compared to lower-level languages. They provide a more straightforward way to illustrate computer science topics.
+
+Q:When comparing nodes in a doubly linked list, what specifically is being compared?
+A:The value within the container node is being compared, not the node itself. This means that the node's value must exist for comparison and removal operations.
+
+Q:What factors make Java a good language for demonstrating computer science topics?
+A:Java is a complete language that is relatively safe, prevents pointer exceptions, and provides a simple way to illustrate computer science concepts without complex memory management.
+
+Q:Why might C be considered the most fundamental language for understanding memory management?
+A:C provides direct access to raw memory, allowing developers to explicitly define and manipulate memory at a low level, showing exactly how memory is managed and used.
+
+Q:What naming convention was used when translating list methods from Java to JavaScript?
+A:Methods were renamed to accommodate JavaScript's lack of method overloading. For example, 'remove' became 'removeAt' and 'remove object' to distinguish different removal operations.
+
+Q:What are the challenges when implementing a doubly linked list?
+A:Implementing a doubly linked list involves managing pointer connections carefully, handling edge cases like removing nodes, and ensuring correct updates of previous and next pointers.
+
+Q:What steps are involved in removing a node from a doubly linked list?
+A:When removing a node, you need to update the previous and next pointers of surrounding nodes, ensuring that nodes are correctly linked and disconnected from the list.
+
+Q:What steps are involved in removing a node from a doubly linked list?
+A:When removing a node, you need to update the previous and next pointers of surrounding nodes, ensuring that nodes are correctly linked and disconnected from the list.
