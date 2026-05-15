@@ -51,3 +51,9 @@ A:Prepending and appending are constant time operations because you can simply b
 
 Q:How can a linked list be conceptually viewed in relation to other data structures?
 A:Every linked list can be considered a graph and technically a tree, making it a foundational data structure for understanding more complex data structures
+
+Q:What is the primary search mechanism for a linked list?
+A:Linked lists can only perform linear search, which means traversing each element sequentially until the desired item is found. There is no possibility of binary search or direct random access.
+
+Q:What is an example use case where a linked list might be preferred over an array?
+A:A linked list is ideal for scenarios like an async request queue, where you need to efficiently push and pop elements from the head or tail without the performance overhead of

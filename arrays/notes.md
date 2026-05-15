@@ -56,6 +56,15 @@ A:The initial buffer size must balance between having enough space to avoid freq
 Q:What are the different types of array size specification in programming languages?
 A:Arrays can have variable sizes (determined at runtime) or compile-time fixed sizes (where the size is a constant known before program execution)
 
+Q:What are the performance characteristics of accessing elements in an array?
+A:Array access is O(1), meaning it's fast and constant time. You can directly access elements by their index with immediate retrieval.
+
+Q:What is a key limitation when inserting or deleting elements in an array?
+A:Inserting or deleting elements in an array requires manually shifting all other elements, which typically involves writing for loops to move elements and create space for the new value.
+
+Q:How does memory allocation differ between arrays and linked lists?
+A:Arrays allocate all memory upfront, meaning if you want space for 1000 items, you reserve all that memory immediately. Linked lists, in contrast, allocate memory dynamically, creating nodes only when elements are inserted.
+
 - What sucks about an Array:
 
 * Deletion --> you can't really delete, can only "zero out" something
@@ -161,3 +170,17 @@ A:The algorithm will return -1, indicating that no breaking point was found in t
 
 Q:Why is jumping by square root of N more efficient than binary search in the crystal ball problem?
 A:Square root of N allows for sub-linear searching, whereas binary search still encounters a linear time complexity problem
+
+## RingBuffer
+
+Q:What is a ring buffer, and what makes its operations unique?
+A:A ring buffer is a data structure where operations like pushing, popping, shifting, and unshifting are O(1), using modulo arithmetic to wrap around an array. It maintains order by using head and tail indices that can move circularly within a fixed-size array.
+
+Q:What happens when a ring buffer needs to resize?
+A:When a ring buffer needs to resize, it creates a new larger buffer, starting at the head and copying elements in order. The head will be set to 0, and the tail will be set to the current length, allowing for additional capacity and continued circular operations.
+
+Q:What is a practical use case for a ring buffer?
+A:A ring buffer can be used in log batching scenarios, where logs need to maintain order while being written. It allows for efficient logging by periodically flushing a batch of logs without blocking the main service, and without requiring complex mutex synchronization.
+
+Q:What is an object pool, and how is it related to ring buffers?
+A:An object pool is a technique for reusing objects instead of creating new ones repeatedly, which can improve performance and memory usage. While ring buffers can be used for object pooling, a simple ArrayList is often sufficient if the order of object creation is not important.
