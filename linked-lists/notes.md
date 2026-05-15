@@ -57,3 +57,21 @@ A:Linked lists can only perform linear search, which means traversing each eleme
 
 Q:What is an example use case where a linked list might be preferred over an array?
 A:A linked list is ideal for scenarios like an async request queue, where you need to efficiently push and pop elements from the head or tail without the performance overhead of
+
+Q:What are the three key steps when prepending a node to a doubly linked list?
+A:Make the new node's 'next' point to the current head, 2. Make the current head's 'previous' point to the new node, 3. Set the head to the new node
+
+Q:When inserting a node at a specific index in a doubly linked list, what is the recommended order of operations?
+A:First, attach the new node to the desired positions, then break the old links. This ensures that no references are lost during the insertion process.
+
+Q:What bookkeeping tasks are important when modifying a linked list?
+A:Increment or decrement the length of the list when adding or removing nodes, and ensure that head and tail references are updated correctly
+
+Q:What special conditions must be handled when implementing insert and append methods in a doubly linked list?
+A:Handle cases such as inserting at index 0 (prepend), inserting at the list's length (append), and handling an initially empty list by setting both head and tail to the new node
+
+Q:How do you safely insert a node into the middle of a doubly linked list without losing references?
+A:Create the new node, 2. Set its 'next' to the current node, 3. Set its 'previous' to the current node's previous, 4. Update the current node's previous to point to the new node, 5. Update the previous node's 'next' to point to the new node
+
+Q:What are the three main conditions to consider when removing a node from a doubly linked list?
+A:The three conditions involve handling the previous node, the next node, and potential updates to the head and tail of the list if the node being removed is at the beginning or end of the list.
