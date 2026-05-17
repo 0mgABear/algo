@@ -343,3 +343,90 @@ A:QuickSort recursively calls itself on the subarrays to the left and right of t
 
 Q:What is the typical pivot selection method demonstrated in the implementation?
 A:In this implementation, the pivot is selected as the last element of the current subarray being sorted.
+
+## Merge Sort
+
+Split array in half recursively until size 1, then merge back together in sorted order.
+
+Q: What is the time complexity of merge sort?
+A: O(n log n) always — best, average and worst case. Unlike quicksort it never degrades to O(n²).
+
+Q: What is the space complexity of merge sort?
+A: O(n) — requires extra memory to store the merged arrays, unlike quicksort which is in-place.
+
+Q: What is the base case for merge sort?
+A: When the array has 0 or 1 elements — already sorted, return as is.
+
+Q: What are the two phases of merge sort?
+A: Split phase — recursively divide array in half until size 1. Merge phase — merge pairs back together in sorted order on the way back up.
+
+Q: Why is merge sort preferred over quicksort in some cases?
+A: Merge sort is stable (equal elements keep original order) and guaranteed O(n log n). Quicksort is faster in practice but unstable and has O(n²) worst case.
+
+Q: What makes merge sort naturally suited for linked lists?
+A: Merge sort doesn't require random access — it just needs to traverse sequentially. Quicksort's random pivot access is inefficient on linked lists.
+
+## Least Recently Used (LRU)
+
+- caching mechanism
+- evict the least recently used item
+- but how do we do it?
+
+cache: some sort of node container based system, which contains some form of value (from the user to cache)
+
+- linked list which has other items inside it
+
+data structure: doubly linked list and potential for a hashmap
+
+- how do you ask for a specific value inside the cache?
+- how can we use it together?
+- hashmaps that has items inside of it, which has pointers to other items
+- hashmap lookup: constant O(1)
+- breaking of links: O(1)
+
+### Q&A
+
+Q:What does LRU stand for, and what is its primary purpose in caching?
+A:LRU stands for Least Recently Used. It is a caching mechanism that evicts the least recently used item when the cache reaches its capacity.
+
+Q:What two primary data structures are used to implement an LRU cache?
+A:A doubly linked list and a HashMap. The HashMap provides constant-time lookup, while the doubly linked list allows for efficient tracking and updating of item usage order.
+
+Q:How does an LRU cache manage item usage order?
+A:When an item is accessed, it is moved to the head of the linked list, making it the most recently used item. The tail of the list represents the least recently used item, which will be evicted when the cache reaches its capacity.
+
+Q:What are the time complexities of key operations in an LRU cache?
+A:HashMap lookup is O(1), breaking and inserting items in a linked list are also O(1) operations. Moving an item to the front of the list and removing the least recently used item can be done in constant time.
+
+Q:Why is a doubly linked list preferred over a singly linked list in an LRU cache implementation?
+A:A doubly linked list allows for constant-time removal and insertion of nodes from anywhere in the list by maintaining both previous and next pointers, which is essential for efficiently updating the cache's usage order.
+
+Q:What are the two main functions discussed for cache implementation?
+A:Get and update functions, where get retrieves a value by key and update adds or modifies a value in the cache
+
+Q:What happens when a value is retrieved from the cache using the get function?
+A:The retrieved value is moved to the front of the cache, becoming the most recently used item
+
+Q:What are the key steps in the get function's pseudocode?
+A:Check cache for existence of the key, 2. Update value and move to front if found, 3. Return the value or undefined if not found
+
+Q:What considerations are important when implementing the update function?
+A:Check if the key already exists, 2. Insert if not found, 3. Check cache capacity, 4. Evict an item if over capacity, 5. Update the value and move to front of the list
+
+Q:How does the cache handle adding a new item when at full capacity?
+A:When the cache reaches its capacity, an item must be evicted (typically the least recently used item) before adding a new item
+
+Q:What are the key components of the LRU (Least Recently Used) cache data structure?
+A:The LRU cache consists of a map (lookup), a reverse lookup map, a doubly linked list with head and tail nodes, a length counter, and a capacity limit. It uses the linked list to track the order of recently used items and the maps for quick key-to-node lookups.
+
+Q:What are the two primary operations in an LRU cache implementation?
+A:The two primary operations are 'get' and 'update'. The 'get' operation retrieves a value and moves the accessed node to the front of the list, while the 'update' operation adds or updates a value and moves it to the front of the list, potentially evicting the least recently used item if the cache is at capacity.
+
+Q:What is the purpose of the 'detach' method in an LRU cache?
+A:The 'detach' method removes a specific node from the linked list by adjusting the 'next' and 'prev' pointers of surrounding nodes. It also handles edge cases like updating the head and tail when the list becomes empty or the detached node is at the head or tail.
+
+Q:What is the role of the reverse lookup map in an LRU cache?
+A:The reverse lookup map allows tracking which key is associated with a specific node. This is crucial for properly cleaning up and removing items from the primary lookup map when evicting the least recently used item from the cache.
+
+Q:How does an LRU cache maintain its size constraint?
+A:The LRU cache maintains its size constraint through the 'trimCache' method, which checks if the current length exceeds the specified capacity. If it does, the method removes the tail node (least recently used item) from the linked list and both lookup maps.

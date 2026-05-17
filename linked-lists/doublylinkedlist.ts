@@ -82,7 +82,6 @@ export default class DoublyLinkedList<T> {
     return this.getAt(idx)?.value;
   }
 
-  // walks the list to find node at index
   private getAt(idx: number): Node<T> | undefined {
     let curr = this.head;
     for (let i = 0; curr && i < idx; ++i) {
@@ -91,7 +90,6 @@ export default class DoublyLinkedList<T> {
     return curr;
   }
 
-  // detaches a node from the list and returns its value
   private removeNode(node: Node<T>): T | undefined {
     this.length--;
 
