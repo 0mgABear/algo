@@ -2,6 +2,8 @@
 
 Course: https://frontendmasters.com/courses/algorithms/
 
+Course 2: https://frontendmasters.com/courses/advanced-algorithms/
+
 ## Basics
 
 Big O

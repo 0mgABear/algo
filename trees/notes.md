@@ -16,6 +16,9 @@
 - balanced - a tree is perfectly balanced when any node's L and R children have the same height
 - branching factor - amount of children a tree has
 
+- full BT
+- partial complete BT: not all levels are complete with nodes
+
 ```typescript
 type Node<T> = {
   value: T;
@@ -53,6 +56,7 @@ recurse
 2. in-order traversal
 
 - root in the middle
+- yield values in order! (sorted) for binary search trees
 
 3. post-order traversal
 
@@ -299,3 +303,12 @@ A:If the current node's value is less than the search value, traverse the right 
 
 Q:Why is binary search on a tree different from binary search on an array?
 A:In a tree, the 'midpoint' is determined by the binary search tree's structure, where nodes are already organized, whereas in an array, the midpoint must be manually calculated and compared.
+
+### Deletion (in BST)
+
+case 1: no child, just delete
+case 2: 1 child, set parent (of to be deleted node) to child of node to be deleted --> alot like a linked list operation!
+case 3: 2 child
+
+- in order successor: go to the right and find smallest child
+- in order predecessor: go to the left and find largest child
